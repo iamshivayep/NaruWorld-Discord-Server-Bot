@@ -138,6 +138,15 @@ client.on('messageCreate', message => {
     }
     
 })
+
+client.on("guildMemberAdd", member => {
+    const channelID = "1044182820844752926"
+    console.log(member)
+    const message = `***Welcome to the server, *** <@${member.id}>!`
+    const channel = member.guild.channels.cache.get(channelID)
+    channel.send(message)
+    
+})
 client.login(process.env.TOKEN)
 
 client.on('ready', () => {
